@@ -1,17 +1,30 @@
+import React, { useState } from "react";
 import BookActionBar from "../../common/components/BookActionBar";
 import Rate from "../../common/components/Rate";
 import { BookType } from "../../common/Types/Book.type";
 import starFilledWhite from "../../common/assets/star-filled-light.svg";
-// import bookCover from "../assets/book-cover.png";
+import '../styles/book.css'
 
 type BookItemProps = {
   book: BookType;
 };
 
 function BookItem({ book }: BookItemProps) {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleBookClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const modalClass = `modal ${showModal ? "is-active" : ""}`;
+
   return (
     <div className="wrapper">
-      <div className="book-item">
+      <div className="book-item" onClick={handleBookClick}>
         <div className="book-hover-overlay">
           <div className="overlay-content">
             <p>Rate this book</p>
@@ -39,9 +52,17 @@ function BookItem({ book }: BookItemProps) {
         />
       </div>
       <BookActionBar type="no-top" status={book.status} />
+      <div className={modalClass}>
+        <div className="modal-background" onClick={handleCloseModal}></div>
+        <div className="modal-content">
+          <div className="box">
+            {/* Modal content */}
+          </div>
+        </div>
+        <button className="modal-close is-large" aria-label="close" onClick={handleCloseModal}></button>
+      </div>
     </div>
   );
 }
 
 export default BookItem;
-jss

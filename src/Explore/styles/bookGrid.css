@@ -28,7 +28,6 @@
 .booklist-section .booklist-wrapper .wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .booklist-section .booklist-wrapper .wrapper li {
