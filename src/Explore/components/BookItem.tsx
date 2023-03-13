@@ -11,7 +11,7 @@ type BookItemProps = {
 function BookItem({ book }: BookItemProps) {
   return (
     <div className="wrapper">
-      <li className="book-item">
+      <div className="book-item">
         <div className="book-hover-overlay">
           <div className="overlay-content">
             <p>Rate this book</p>
@@ -37,10 +37,11 @@ function BookItem({ book }: BookItemProps) {
                 : "",
           }}
         />
-      </li>
+      </div>
       <BookActionBar type="no-top" status={book.status} />
     </div>
   );
 }
 
 export default BookItem;
+jss
